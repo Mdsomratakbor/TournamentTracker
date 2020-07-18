@@ -16,5 +16,20 @@ namespace TrackerUI
         {
             InitializeComponent();
         }
+
+        private void headerLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void orLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
