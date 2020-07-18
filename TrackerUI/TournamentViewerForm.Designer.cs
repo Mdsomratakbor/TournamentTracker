@@ -107,7 +107,7 @@
             this.matchupListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.matchupListBox.FormattingEnabled = true;
             this.matchupListBox.ItemHeight = 30;
-            this.matchupListBox.Location = new System.Drawing.Point(36, 207);
+            this.matchupListBox.Location = new System.Drawing.Point(34, 207);
             this.matchupListBox.Name = "matchupListBox";
             this.matchupListBox.Size = new System.Drawing.Size(341, 182);
             this.matchupListBox.TabIndex = 5;
