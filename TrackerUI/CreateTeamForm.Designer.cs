@@ -35,7 +35,7 @@
             this.addMemberButton = new System.Windows.Forms.Button();
             this.selectTeamMemberDropDown = new System.Windows.Forms.ComboBox();
             this.selectTeamMemberLable = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.addNewMemberBox = new System.Windows.Forms.GroupBox();
             this.createMemberButton = new System.Windows.Forms.Button();
             this.cellPhoneValue = new System.Windows.Forms.TextBox();
             this.cellPhoneLabel = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
             this.teamMemberListBox = new System.Windows.Forms.ListBox();
             this.deleteSelectedMemberButton = new System.Windows.Forms.Button();
             this.createTeamButton = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.addNewMemberBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // teamNameValue
@@ -116,25 +116,25 @@
             this.selectTeamMemberLable.TabIndex = 17;
             this.selectTeamMemberLable.Text = "Select Team Member";
             // 
-            // groupBox1
+            // addNewMemberBox
             // 
-            this.groupBox1.Controls.Add(this.createMemberButton);
-            this.groupBox1.Controls.Add(this.cellPhoneValue);
-            this.groupBox1.Controls.Add(this.cellPhoneLabel);
-            this.groupBox1.Controls.Add(this.emailValue);
-            this.groupBox1.Controls.Add(this.emailLabel);
-            this.groupBox1.Controls.Add(this.lastNameValue);
-            this.groupBox1.Controls.Add(this.lastNameLabel);
-            this.groupBox1.Controls.Add(this.firstNameValue);
-            this.groupBox1.Controls.Add(this.firstNameLabel);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.groupBox1.Location = new System.Drawing.Point(21, 285);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 296);
-            this.groupBox1.TabIndex = 21;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add New Member ";
+            this.addNewMemberBox.Controls.Add(this.createMemberButton);
+            this.addNewMemberBox.Controls.Add(this.cellPhoneValue);
+            this.addNewMemberBox.Controls.Add(this.cellPhoneLabel);
+            this.addNewMemberBox.Controls.Add(this.emailValue);
+            this.addNewMemberBox.Controls.Add(this.emailLabel);
+            this.addNewMemberBox.Controls.Add(this.lastNameValue);
+            this.addNewMemberBox.Controls.Add(this.lastNameLabel);
+            this.addNewMemberBox.Controls.Add(this.firstNameValue);
+            this.addNewMemberBox.Controls.Add(this.firstNameLabel);
+            this.addNewMemberBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addNewMemberBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.addNewMemberBox.Location = new System.Drawing.Point(21, 285);
+            this.addNewMemberBox.Name = "addNewMemberBox";
+            this.addNewMemberBox.Size = new System.Drawing.Size(367, 296);
+            this.addNewMemberBox.TabIndex = 21;
+            this.addNewMemberBox.TabStop = false;
+            this.addNewMemberBox.Text = "Add New Member ";
             // 
             // createMemberButton
             // 
@@ -279,7 +279,7 @@
             this.Controls.Add(this.createTeamButton);
             this.Controls.Add(this.deleteSelectedMemberButton);
             this.Controls.Add(this.teamMemberListBox);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.addNewMemberBox);
             this.Controls.Add(this.addMemberButton);
             this.Controls.Add(this.selectTeamMemberDropDown);
             this.Controls.Add(this.selectTeamMemberLable);
@@ -291,8 +291,8 @@
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "CreateTeamForm";
             this.Text = "Create Team";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.addNewMemberBox.ResumeLayout(false);
+            this.addNewMemberBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,7 +306,7 @@
         private System.Windows.Forms.Button addMemberButton;
         private System.Windows.Forms.ComboBox selectTeamMemberDropDown;
         private System.Windows.Forms.Label selectTeamMemberLable;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox addNewMemberBox;
         private System.Windows.Forms.TextBox firstNameValue;
         private System.Windows.Forms.Label firstNameLabel;
         private System.Windows.Forms.TextBox lastNameValue;
