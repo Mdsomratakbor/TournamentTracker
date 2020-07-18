@@ -58,6 +58,7 @@
             this.headerLabel.Size = new System.Drawing.Size(317, 50);
             this.headerLabel.TabIndex = 1;
             this.headerLabel.Text = "Create Tournament";
+            this.headerLabel.Click += new System.EventHandler(this.headerLabel_Click);
             // 
             // tournamentNameValue
             // 
@@ -66,6 +67,7 @@
             this.tournamentNameValue.Name = "tournamentNameValue";
             this.tournamentNameValue.Size = new System.Drawing.Size(308, 35);
             this.tournamentNameValue.TabIndex = 10;
+            this.tournamentNameValue.TextChanged += new System.EventHandler(this.tournamentNameValue_TextChanged);
             // 
             // tournamentNameLable
             // 
@@ -77,6 +79,7 @@
             this.tournamentNameLable.Size = new System.Drawing.Size(225, 37);
             this.tournamentNameLable.TabIndex = 9;
             this.tournamentNameLable.Text = "Tournament Name";
+            this.tournamentNameLable.Click += new System.EventHandler(this.tournamentNameLable_Click);
             // 
             // entryFeeValue
             // 
@@ -105,6 +108,7 @@
             this.selectTeamDropDown.Name = "selectTeamDropDown";
             this.selectTeamDropDown.Size = new System.Drawing.Size(308, 38);
             this.selectTeamDropDown.TabIndex = 14;
+            this.selectTeamDropDown.SelectedIndexChanged += new System.EventHandler(this.selectTeamDropDown_SelectedIndexChanged);
             // 
             // selectTeamLable
             // 
@@ -116,6 +120,7 @@
             this.selectTeamLable.Size = new System.Drawing.Size(150, 37);
             this.selectTeamLable.TabIndex = 13;
             this.selectTeamLable.Text = "Select Team";
+            this.selectTeamLable.Click += new System.EventHandler(this.selectTeamLable_Click);
             // 
             // createNewTeamLink
             // 
@@ -142,6 +147,7 @@
             this.addTeamButton.TabIndex = 16;
             this.addTeamButton.Text = "Add Team";
             this.addTeamButton.UseVisualStyleBackColor = false;
+            this.addTeamButton.Click += new System.EventHandler(this.addTeamButton_Click);
             // 
             // createPrizeButton
             // 
@@ -277,6 +283,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "tournametPlayersListBox";
             this.Text = "Create Tournament";
+            this.Load += new System.EventHandler(this.tournametPlayersListBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
