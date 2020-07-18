@@ -1,0 +1,10 @@
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\TrackerUI.exe.config
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\TrackerUI.exe
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\TrackerUI.pdb
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.csprojAssemblyReference.cache
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.Properties.Resources.resources
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.versusLabel.resources
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.csproj.GenerateResource.cache
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.csproj.CoreCompileInputs.cache
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.exe
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.pdb

@@ -10,11 +10,31 @@ using System.Windows.Forms;
 
 namespace TrackerUI
 {
-    public partial class TournamentViewerForm : Form
+    public partial class versusLabel : Form
     {
-        public TournamentViewerForm()
+        public versusLabel()
         {
             InitializeComponent();
+        }
+
+        private void TournamentViewerForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tournamentName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void unplayedOnlyCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
