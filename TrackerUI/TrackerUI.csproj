@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreatePrizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatePrizeForm.Designer.cs">
+      <DependentUpon>CreatePrizeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateTeamForm.cs">
       <SubType>Form</SubType>
     </Compile>
