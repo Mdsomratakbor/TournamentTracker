@@ -11,15 +11,15 @@ namespace TrackerLibrary
     {
         public static IDataConnection Connections { get; private set; }
 
-        public static void InitializeConnections(string connectionType)
+        public static void InitializeConnections(DatabaseType db)
         {
-            if (connectionType == "sql")
+            if (db==DatabaseType.Sql)
             {
                 // do somthing 
                 SqlConnector sql = new SqlConnector();
                 Connections = sql;
             }
-            else if (connectionType == "text")
+            else if (db==DatabaseType.TextFile)
             {
                 //do somthing
                 TextConnector text = new TextConnector();
