@@ -52,7 +52,6 @@
             this.headerLabel.Size = new System.Drawing.Size(209, 50);
             this.headerLabel.TabIndex = 12;
             this.headerLabel.Text = "Create Prize";
-            this.headerLabel.Click += new System.EventHandler(this.headerLabel_Click);
             // 
             // placeNumberValue
             // 
@@ -91,7 +90,6 @@
             this.placeNameLabel.Size = new System.Drawing.Size(152, 37);
             this.placeNameLabel.TabIndex = 15;
             this.placeNameLabel.Text = "Place Name";
-            this.placeNameLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // prizeAmountValue
             // 
@@ -141,7 +139,6 @@
             this.orLabel.Size = new System.Drawing.Size(66, 37);
             this.orLabel.TabIndex = 21;
             this.orLabel.Text = "-Or-";
-            this.orLabel.Click += new System.EventHandler(this.orLabel_Click);
             // 
             // createPrizeButton
             // 
@@ -149,7 +146,6 @@
             this.createPrizeButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.createPrizeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.createPrizeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.createPrizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createPrizeButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createPrizeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.createPrizeButton.Location = new System.Drawing.Point(146, 310);
@@ -158,6 +154,7 @@
             this.createPrizeButton.TabIndex = 26;
             this.createPrizeButton.Text = "Create Prize";
             this.createPrizeButton.UseVisualStyleBackColor = false;
+            this.createPrizeButton.Click += new System.EventHandler(this.createPrizeButton_Click);
             // 
             // CreatePrizeForm
             // 
