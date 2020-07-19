@@ -9,7 +9,7 @@ namespace TrackerLibrary
 {
     public static class GlobalConfig
     {
-        public static IDataConnection Connections { get; private set; }
+        public static IDataConnection Connection { get; private set; }
 
         public static void InitializeConnections(DatabaseType db)
         {
@@ -17,13 +17,13 @@ namespace TrackerLibrary
             {
                 // do somthing 
                 SqlConnector sql = new SqlConnector();
-                Connections = sql;
+                Connection = sql;
             }
             else if (db==DatabaseType.TextFile)
             {
                 //do somthing
                 TextConnector text = new TextConnector();
-                Connections = text;
+                Connection = text;
             }
         }
 
