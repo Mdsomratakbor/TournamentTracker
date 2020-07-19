@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace TrackerLibrary
 {
-    public class GlobalConfig
+    public static class GlobalConfig
     {
+        public static List<IDataConnection> Connections { get; private set; }
+
+        public static void InitializeConnections(bool database, bool textFiles)
+        {
+            if (database)
+            {
+                // do somthing 
+            }
+            if (textFiles)
+            {
+                //do somthing
+            }
+        }
     }
 }
