@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrackerLibrary
 {
-    public class SqlConnector : IDataConnection
+    public class TextConnector : IDataConnection
     {
         public PrizeModel CreatePrize(PrizeModel model)
         {
