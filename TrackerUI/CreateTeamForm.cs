@@ -27,6 +27,13 @@ namespace TrackerUI
                 model.LastName = lastNameValue.Text;
                 model.EmailAddress = emailValue.Text;
                 model.CellPhoneNumber = cellPhoneValue.Text;
+                GlobalConfig.Connection.CreatePerson(model);
+                firstNameValue.Text = string.Empty;
+                lastNameValue.Text = string.Empty;
+                emailValue.Text = string.Empty;
+                cellPhoneValue.Text = string.Empty;
+
+
 
             }
             else
