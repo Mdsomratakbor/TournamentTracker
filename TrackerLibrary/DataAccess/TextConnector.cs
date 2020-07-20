@@ -12,5 +12,9 @@ namespace TrackerLibrary
         {
             return model;
         }
+        public static List<string> LoadFile(this string file)
+        {
+
+        }
     }
 }
