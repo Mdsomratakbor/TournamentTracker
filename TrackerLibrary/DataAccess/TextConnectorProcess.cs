@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TrackerLibrary.DataAccess
 {
-    public class TextConnectorProcess
+    public static class TextConnectorProcess
     {
+        public
     }
 }
