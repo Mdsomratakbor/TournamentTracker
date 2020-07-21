@@ -14,27 +14,20 @@ namespace TrackerUI
     public partial class CreateTeamForm : Form
     {
         private List<PersonModel> avalilabeTeamMembers = GlobalConfig.Connection.GetPersonAll();
-        private List<PersonModel> selectedTeamMebers = new List<PersonModel>();
+        private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
 
         public CreateTeamForm()
         {
             InitializeComponent();
             wireUpList();
         }
-        private void createSampleData()
-        {
-            avalilabeTeamMembers.Add(new PersonModel { FirstName = "Md somrat", LastName = "akbor" });
-            avalilabeTeamMembers.Add(new PersonModel { FirstName = "Md Moazzam", LastName = "hossain" });
-
-            selectedTeamMebers.Add(new PersonModel { FirstName = "Md somrats", LastName = "akbors" });
-            selectedTeamMebers.Add(new PersonModel { FirstName = "Md Moazzams", LastName = "hossains" });
-        }
-
         private void wireUpList()
         {
+            selectTeamMemberDropDown.DataSource = null;
             selectTeamMemberDropDown.DataSource = avalilabeTeamMembers;
             selectTeamMemberDropDown.DisplayMember = "FullName";
-            teamMemberListBox.DataSource = selectedTeamMebers;
+            teamMemberListBox.DataSource = null;
+            teamMemberListBox.DataSource = selectedTeamMembers;
             teamMemberListBox.DisplayMember = "FullName";
 
         }
@@ -80,6 +73,22 @@ namespace TrackerUI
                 return false;
             }
             return true;
+        }
+
+        private void addMemberButton_Click(object sender, EventArgs e)
+        {
+            PersonModel p = (PersonModel)selectTeamMemberDropDown.SelectedItem;
+            avalilabeTeamMembers.Remove(p);
+            selectedTeamMembers.Add(p);
+            wireUpList();
+        }
+
+        private void removeSelectedMemberButton_Click(object sender, EventArgs e)
+        {
+            PersonModel p = (PersonModel)teamMemberListBox.SelectedItem;
+            selectedTeamMembers.Remove(p);
+            avalilabeTeamMembers.Add(p);
+            wireUpList();
         }
     }
 }
