@@ -13,13 +13,12 @@ namespace TrackerUI
 {
     public partial class CreateTeamForm : Form
     {
-        private List<PersonModel> avalilabeTeamMembers = new List<PersonModel>();
+        private List<PersonModel> avalilabeTeamMembers = GlobalConfig.Connection.GetPersonAll();
         private List<PersonModel> selectedTeamMebers = new List<PersonModel>();
 
         public CreateTeamForm()
         {
             InitializeComponent();
-            createSampleData();
             wireUpList();
         }
         private void createSampleData()
