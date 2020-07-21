@@ -41,6 +41,10 @@ namespace TrackerLibrary
             prizes.SaveToPrizeFile(PrizesFile);
             return model;
         }
-       
+
+        public List<PersonModel> GetPersonAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
