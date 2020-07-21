@@ -40,7 +40,9 @@ namespace TrackerUI
                 model.LastName = lastNameValue.Text;
                 model.EmailAddress = emailValue.Text;
                 model.CellPhoneNumber = cellPhoneValue.Text;
-                GlobalConfig.Connection.CreatePerson(model);
+                model = GlobalConfig.Connection.CreatePerson(model);
+                selectedTeamMembers.Add(model);
+                wireUpList();
                 firstNameValue.Text = string.Empty;
                 lastNameValue.Text = string.Empty;
                 emailValue.Text = string.Empty;
@@ -78,17 +80,23 @@ namespace TrackerUI
         private void addMemberButton_Click(object sender, EventArgs e)
         {
             PersonModel p = (PersonModel)selectTeamMemberDropDown.SelectedItem;
-            avalilabeTeamMembers.Remove(p);
-            selectedTeamMembers.Add(p);
-            wireUpList();
+            if (p != null)
+            {
+                avalilabeTeamMembers.Remove(p);
+                selectedTeamMembers.Add(p);
+                wireUpList();
+            }
         }
 
         private void removeSelectedMemberButton_Click(object sender, EventArgs e)
         {
             PersonModel p = (PersonModel)teamMemberListBox.SelectedItem;
-            selectedTeamMembers.Remove(p);
-            avalilabeTeamMembers.Add(p);
-            wireUpList();
+            if (p != null)
+            {
+                selectedTeamMembers.Remove(p);
+                avalilabeTeamMembers.Add(p);
+                wireUpList();
+            }
         }
     }
 }
