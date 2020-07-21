@@ -42,6 +42,11 @@ namespace TrackerLibrary
             return model;
         }
 
+        public TeamModel CreateTeam(TeamModel model)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<PersonModel> GetPersonAll()
         {
             return PersonFile.FullFilePath().LoadFile().ConvertPersonModels();
