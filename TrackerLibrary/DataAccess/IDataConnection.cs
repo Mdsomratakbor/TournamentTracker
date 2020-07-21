@@ -11,6 +11,7 @@ namespace TrackerLibrary
         PrizeModel CreatePrize(PrizeModel model);
         PersonModel CreatePerson(PersonModel model);
         List<PersonModel> GetPersonAll();
+        List<TeamModel> GetTeamAll();
         TeamModel CreateTeam(TeamModel model);
     }
 }

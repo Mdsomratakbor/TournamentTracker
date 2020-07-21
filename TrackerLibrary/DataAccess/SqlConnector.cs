@@ -70,7 +70,25 @@ namespace TrackerLibrary
             List<PersonModel> output = new List<PersonModel>();
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString(db)))
             {
+               
+                
                 output = connection.Query<PersonModel>("dbo.spPersonGetAll").ToList();
+            }
+            return output;
+        }
+
+        public List<TeamModel> GetTeamAll()
+        {
+            List<TeamModel> output = new List<TeamModel>();
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString(db)))
+            {
+                output = connection.Query<TeamModel>("dbo.spTeamGetAll").ToList();
+                foreach(TeamModel team in output)
+                {
+                    var p = new DynamicParameters();
+                    p.Add("@TeamId", team.Id);
+                    team.TeamMembers = connection.Query<PersonModel>("dbo.spTeamMemberGetByTeam",p, commandType: CommandType.StoredProcedure).ToList();
+                }
             }
             return output;
         }

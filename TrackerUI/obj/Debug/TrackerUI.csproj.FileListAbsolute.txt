@@ -10,10 +10,10 @@ D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.pdb
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.CreatePrizeForm.resources
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.CreateTeamForm.resources
-D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.tournametPlayersListBox.resources
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.TournamentDashboardForm.resources
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\TrackerLibrary.dll
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\TrackerLibrary.pdb
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.csproj.CopyComplete
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\Dapper.dll
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\Dapper.xml
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.CreateTournamentForm.resources
