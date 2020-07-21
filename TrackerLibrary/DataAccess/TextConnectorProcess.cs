@@ -38,6 +38,7 @@ namespace TrackerLibrary.DataAccess
             }
             return output;
         }
+
         public static List<PersonModel> ConvertPersonModels(this List<string> lines)
         {
             List<PersonModel> output = new List<PersonModel>();
@@ -51,6 +52,26 @@ namespace TrackerLibrary.DataAccess
                 p.EmailAddress = cols[3];
                 p.CellPhoneNumber = cols[4];
                 output.Add(p);
+            }
+            return output;
+        }
+
+        public static List<TeamModel> ConvertTeamModels(this List<string> lines, string pernosFileName)
+        {
+            List<TeamModel> output = new List<TeamModel>();
+            List<PersonModel> person = pernosFileName.FullFilePath().LoadFile().ConvertPersonModels();
+            foreach (string line in lines)
+            {
+                string[] cols = line.Split(',');
+                TeamModel t = new TeamModel();
+                t.Id = int.Parse(cols[0]);
+                t.TeamName = cols[1];
+                string[] personIds = cols[2].Split('|');
+                foreach (string id in personIds)
+                {
+                    t.TeamMembers.Add(person.Where(x => x.Id == int.Parse(id)).FirstOrDefault());
+                }
+                output.Add(t);
             }
             return output;
         }
@@ -73,5 +94,28 @@ namespace TrackerLibrary.DataAccess
             }
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }
+        public static void SaveToTeamFile(this List<TeamModel> models, string fileName)
+        {
+            List<string> lines = new List<string>();
+            foreach (TeamModel t in models)
+            {
+                lines.Add($"{t.Id},{t.TeamName},{ConvertPersonListString(t.TeamMembers)}");
+            }
+            File.WriteAllLines(fileName.FullFilePath(), lines);
+        }
+        private static string ConvertPersonListString(List<PersonModel> person)
+        {
+            string output = string.Empty;
+            if (person.Count == 0)
+            {
+                return string.Empty;
+            }
+            foreach (PersonModel p in person)
+            {
+                output += $"{p.Id}|";
+            }
+            output = output.Substring(0, output.Length - 1);
+            return output;
+        } 
     }
 }
