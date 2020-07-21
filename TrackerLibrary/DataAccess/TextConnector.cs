@@ -44,7 +44,7 @@ namespace TrackerLibrary
 
         public List<PersonModel> GetPersonAll()
         {
-            throw new NotImplementedException();
+            return PersonFile.FullFilePath().LoadFile().ConvertPersonModels();
         }
     }
 }
