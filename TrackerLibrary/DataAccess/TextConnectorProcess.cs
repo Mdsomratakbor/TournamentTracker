@@ -117,5 +117,11 @@ namespace TrackerLibrary.DataAccess
             output = output.Substring(0, output.Length - 1);
             return output;
         } 
+
+        public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines)
+        {
+            List<TournamentModel> output = new List<TournamentModel>();
+            return output;
+        }
     }
 }

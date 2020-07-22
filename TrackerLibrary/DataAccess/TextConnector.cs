@@ -12,6 +12,7 @@ namespace TrackerLibrary
         private const string PrizesFile = "PrizeModel.csv";
         private const string PersonFile = "PersonModel.csv";
         private const string TeamFile = "TeamsModel.csv";
+        private const string TournamentFile = "TournamentModels.csv";
 
         public PersonModel CreatePerson(PersonModel model)
         {
@@ -59,7 +60,7 @@ namespace TrackerLibrary
 
         public TournamentModel CreateTournament(TournamentModel model)
         {
-            throw new NotImplementedException();
+            List<TournamentModel> tournaments = TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels();
         }
 
         public List<PersonModel> GetPersonAll()

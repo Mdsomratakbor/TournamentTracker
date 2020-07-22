@@ -106,7 +106,7 @@ namespace TrackerUI
             tm.EntryFree = fee;
             tm.Prizes = selectedPrizes;
             tm.EnteredTeams = selectedTeams;
-
+            GlobalConfig.Connection.CreateTournament(tm);
 
         }
     }
