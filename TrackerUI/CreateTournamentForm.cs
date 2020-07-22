@@ -46,10 +46,7 @@ namespace TrackerUI
             }
         }
 
-        private void deleteSelectedPlayers_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void createPrizeButton_Click(object sender, EventArgs e)
         {
@@ -73,6 +70,26 @@ namespace TrackerUI
         {
             CreateTeamForm frm = new CreateTeamForm(this);
             frm.Show();
+        }
+
+        private void deleteSelectedPlayers_Click(object sender, EventArgs e)
+        {
+            TeamModel team = (TeamModel)tournamentTeamListBox.SelectedItem;
+            if (team != null)
+            {
+                selectedTeams.Remove(team);
+                availabeTeams.Add(team);
+                Initializelists();
+            }
+        }
+        private void removeSelectedPrizeButton_Click(object sender, EventArgs e)
+        {
+            PrizeModel prize = (PrizeModel)prizesListBox.SelectedItem;
+            if (prize != null)
+            {
+                selectedPrizes.Remove(prize);
+                Initializelists();
+            }
         }
     }
 }
