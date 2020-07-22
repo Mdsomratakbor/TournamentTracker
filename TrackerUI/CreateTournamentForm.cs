@@ -68,5 +68,11 @@ namespace TrackerUI
             selectedTeams.Add(model);
             Initializelists();
         }
+
+        private void createNewTeamLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateTeamForm frm = new CreateTeamForm(this);
+            frm.Show();
+        }
     }
 }

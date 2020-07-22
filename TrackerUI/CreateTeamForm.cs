@@ -11,15 +11,16 @@ using TrackerLibrary;
 
 namespace TrackerUI
 {
-    public partial class CreateTeamForm : Form
+    public partial class CreateTeamForm : Form, ITeamRequester
     {
         private List<PersonModel> avalilabeTeamMembers = GlobalConfig.Connection.GetPersonAll();
         private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
-
-        public CreateTeamForm()
+        private ITeamRequester callingForm;
+        public CreateTeamForm(ITeamRequester caller)
         {
             InitializeComponent();
             wireUpList();
+            callingForm = caller;
         }
         private void wireUpList()
         {
@@ -105,6 +106,10 @@ namespace TrackerUI
             t.TeamName = teamNameValue.Text;
             t.TeamMembers = selectedTeamMembers;
             GlobalConfig.Connection.CreateTeam(t);
+            callingForm.TeamComplete(t);
+            this.Close();
         }
+
+      
     }
 }
