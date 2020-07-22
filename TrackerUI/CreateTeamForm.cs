@@ -11,7 +11,7 @@ using TrackerLibrary;
 
 namespace TrackerUI
 {
-    public partial class CreateTeamForm : Form, ITeamRequester
+    public partial class CreateTeamForm : Form
     {
         private List<PersonModel> avalilabeTeamMembers = GlobalConfig.Connection.GetPersonAll();
         private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
