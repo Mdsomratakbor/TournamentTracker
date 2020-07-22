@@ -57,6 +57,11 @@ namespace TrackerLibrary
             return model;
         }
 
+        public TournamentModel CreateTournament(TournamentModel model)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<PersonModel> GetPersonAll()
         {
             return PersonFile.FullFilePath().LoadFile().ConvertPersonModels();
