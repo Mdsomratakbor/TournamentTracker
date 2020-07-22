@@ -17,6 +17,7 @@ namespace TrackerUI
         public CreateTournamentForm()
         {
             InitializeComponent();
+            Initializelists();
         }
         private void Initializelists()
         {
