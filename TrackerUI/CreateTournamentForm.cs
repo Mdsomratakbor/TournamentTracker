@@ -44,5 +44,15 @@ namespace TrackerUI
                 Initializelists();
             }
         }
+
+        private void deleteSelectedPlayers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createPrizeButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

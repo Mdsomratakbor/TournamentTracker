@@ -159,6 +159,7 @@
             this.createPrizeButton.TabIndex = 17;
             this.createPrizeButton.Text = "Create Prize";
             this.createPrizeButton.UseVisualStyleBackColor = false;
+            this.createPrizeButton.Click += new System.EventHandler(this.createPrizeButton_Click);
             // 
             // tournamentTeamListBox
             // 
@@ -196,6 +197,7 @@
             this.deleteSelectedPlayers.TabIndex = 20;
             this.deleteSelectedPlayers.Text = "Delete Selected";
             this.deleteSelectedPlayers.UseVisualStyleBackColor = false;
+            this.deleteSelectedPlayers.Click += new System.EventHandler(this.deleteSelectedPlayers_Click);
             // 
             // deletSelectedPrizeButton
             // 
