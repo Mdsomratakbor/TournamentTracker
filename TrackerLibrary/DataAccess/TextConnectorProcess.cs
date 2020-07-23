@@ -103,6 +103,43 @@ namespace TrackerLibrary.DataAccess
             }
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }
+        public static void SaveToTournamentFile(this List<TournamentModel> models)
+        {
+            List<string> lines = new List<string>();
+            foreach (TournamentModel tournament  in models)
+            {
+                lines.Add($"{tournament.Id},{tournament.TournamentName},{tournament.EntryFree},{ConvertTeamListToString(tournament.EnteredTeams)},{""},{ConvertPrizeListToString(tournament.Prizes)},{""}");
+            }
+        }
+        private static string ConvertTeamListToString(List<TeamModel> teams)
+        {
+            string output = string.Empty;
+            if (teams.Count == 0)
+            { 
+                return string.Empty;
+            }
+            foreach (TeamModel team in teams)
+            {
+                output += $"{team.Id}|";
+            }
+            output = output.Substring(0, output.Length - 1);
+            return output;
+        }
+
+        public static string ConvertPrizeListToString(List<PrizeModel> prizes)
+        {
+            string output = string.Empty;
+            if (prizes.Count == 0)
+            {
+                return string.Empty;
+            }
+            foreach (PrizeModel prize in prizes)
+            {
+                output += $"{prize.Id}|";
+            }
+            output = output.Substring(0, output.Length - 1);
+            return output;
+        }
         private static string ConvertPersonListString(List<PersonModel> person)
         {
             string output = string.Empty;
