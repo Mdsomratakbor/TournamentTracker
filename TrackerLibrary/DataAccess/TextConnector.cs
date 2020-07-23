@@ -60,7 +60,7 @@ namespace TrackerLibrary
 
         public TournamentModel CreateTournament(TournamentModel model)
         {
-            List<TournamentModel> tournaments = TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels();
+            List<TournamentModel> tournaments = TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamFile, PersonFile,PrizesFile);
         }
 
         public List<PersonModel> GetPersonAll()

@@ -118,9 +118,30 @@ namespace TrackerLibrary.DataAccess
             return output;
         } 
 
-        public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines)
+        public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines, string teamFileName, string personFileName, string prizeFileName)
         {
             List<TournamentModel> output = new List<TournamentModel>();
+            List<TeamModel> teams = teamFileName.FullFilePath().LoadFile().ConvertTeamModels(personFileName);
+            List<PrizeModel> prizes = prizeFileName.FullFilePath().LoadFile().ConvertPrizeModels();
+            foreach(string line in lines)
+            {
+                string[] cols = line.Split(',');
+                TournamentModel tournament = new TournamentModel();
+                tournament.Id = int.Parse(cols[0]);
+                tournament.TournamentName = cols[1];
+                tournament.EntryFree = decimal.Parse(cols[2]);
+                string[] teamIds = cols[3].Split('|');
+                foreach (string id in teamIds)
+                {
+                    tournament.EnteredTeams.Add(teams.Where(x=>x.Id==int.Parse(id)).FirstOrDefault());
+                }
+                string[] prizeIds = cols[4].Split('|');
+                foreach (string id in prizeIds)
+                {
+                    tournament.Prizes.Add(prizes.Where(x => x.Id == int.Parse(id)).FirstOrDefault());
+                }
+                output.Add(tournament);
+            }
             return output;
         }
     }
