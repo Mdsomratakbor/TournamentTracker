@@ -28,6 +28,6 @@ namespace TrackerLibrary
         /// <summary>
         /// Which round this match is a part of.
         /// </summary>
-        public int MatchupRoung { get; set; }
+        public int MatchupRound { get; set; }
     }
 }

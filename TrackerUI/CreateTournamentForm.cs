@@ -106,6 +106,7 @@ namespace TrackerUI
             tm.EntryFree = fee;
             tm.Prizes = selectedPrizes;
             tm.EnteredTeams = selectedTeams;
+            TournamentLogic.CreateRounds(tm);
             //TODO : wire up mathcup
             GlobalConfig.Connection.CreateTournament(tm);
 
