@@ -103,13 +103,14 @@ namespace TrackerLibrary.DataAccess
             }
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }
-        public static void SaveToTournamentFile(this List<TournamentModel> models)
+        public static void SaveToTournamentFile(this List<TournamentModel> models,string fileName)
         {
             List<string> lines = new List<string>();
             foreach (TournamentModel tournament  in models)
             {
-                lines.Add($"{tournament.Id},{tournament.TournamentName},{tournament.EntryFree},{ConvertTeamListToString(tournament.EnteredTeams)},{""},{ConvertPrizeListToString(tournament.Prizes)},{""}");
+                lines.Add($"{tournament.Id},{tournament.TournamentName},{tournament.EntryFree},{ConvertTeamListToString(tournament.EnteredTeams)},{""},{ConvertPrizeListToString(tournament.Prizes)},{ConvertRoundListString(tournament.Rounds)}");
             }
+            File.WriteAllLines(fileName.FullFilePath(), lines);
         }
         private static string ConvertTeamListToString(List<TeamModel> teams)
         {
@@ -153,7 +154,35 @@ namespace TrackerLibrary.DataAccess
             }
             output = output.Substring(0, output.Length - 1);
             return output;
-        } 
+        }
+        private static string ConvertRoundListString(List<List<MatchupModel>> rounds)
+        {
+            string output = string.Empty;
+            if (rounds.Count == 0)
+            {
+                return string.Empty;
+            }
+            foreach (List<MatchupModel> r in rounds)
+            {
+                output = $"{ConvertMatchUpListToString(r)}|";
+            }
+            output = output.Substring(0, output.Length - 1);
+            return output;
+        }
+        private static string ConvertMatchUpListToString(List<MatchupModel> matchups)
+        {
+            string output = string.Empty;
+            if (matchups.Count == 0)
+            {
+                return string.Empty;
+            }
+            foreach (MatchupModel m in matchups)
+            {
+                output += $"{m.Id}^";
+            }
+            output = output.Substring(0,output.Length-1);
+            return output;
+        }
 
         public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines, string teamFileName, string personFileName, string prizeFileName)
         {

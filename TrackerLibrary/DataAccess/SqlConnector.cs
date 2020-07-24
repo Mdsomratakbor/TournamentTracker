@@ -66,15 +66,13 @@ namespace TrackerLibrary
 
         }
 
-        public TournamentModel CreateTournament(TournamentModel model)
+        public void CreateTournament(TournamentModel model)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString(db)))
             {
                 SaveTournament(connection,model);
                 SaveTournamentPrizes(connection, model);
-                SaveTournamentEntries(connection, model);
-                
-                return model;
+                SaveTournamentEntries(connection, model);                       
             }
         }
 

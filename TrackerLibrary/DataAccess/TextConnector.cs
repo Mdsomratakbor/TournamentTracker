@@ -58,7 +58,7 @@ namespace TrackerLibrary
             return model;
         }
 
-        public TournamentModel CreateTournament(TournamentModel model)
+        public void CreateTournament(TournamentModel model)
         {
             List<TournamentModel> tournaments = TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamFile, PersonFile,PrizesFile);
             int currentId = 1;
@@ -69,6 +69,7 @@ namespace TrackerLibrary
             model.Id = currentId;
             tournaments.Add(model);
             tournaments.SaveToTournamentFile(TournamentFile);
+           
         }
 
         public List<PersonModel> GetPersonAll()

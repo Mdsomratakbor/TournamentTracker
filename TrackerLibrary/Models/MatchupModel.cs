@@ -12,6 +12,10 @@ namespace TrackerLibrary
     public class MatchupModel
     {
         /// <summary>
+        /// Unique id for matchup.
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// The set of teams that were involved in thsi match.
         /// </summary>
         public List<MatchupEntryModel> Entries { get; set; } = new List<MatchupEntryModel>();
