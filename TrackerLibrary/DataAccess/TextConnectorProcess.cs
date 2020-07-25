@@ -114,6 +114,25 @@ namespace TrackerLibrary.DataAccess
         }
         public static void SaveRoundsToFile( this TournamentModel model, string matchupFile, string matchupEntryFile)
         {
+            foreach (List<MatchupModel> round in model.Rounds)
+            {
+                foreach (MatchupModel matchup in round)
+                {
+                    matchup.SaveMatchupToFile(matchupFile);
+                    foreach (MatchupEntryModel entry in matchup.Entries)
+                    {
+                        entry.SaveEntryToFile(matchupEntryFile);
+                    }
+                }
+            }
+        }
+
+        public static void SaveMatchupToFile(this MatchupModel matchup, string matchupFile)
+        {
+
+        }
+        public static void SaveEntryToFile(this MatchupEntryModel entry, string matchupEntryFile)
+        {
 
         }
 
