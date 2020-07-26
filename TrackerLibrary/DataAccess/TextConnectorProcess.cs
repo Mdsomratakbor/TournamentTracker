@@ -125,15 +125,42 @@ namespace TrackerLibrary.DataAccess
         }
 
         public static void SaveMatchupToFile(this MatchupModel matchup, string matchupFile, string matchupEntryFile)
-        {
+        {        
+            List<MatchupModel> matchups = GlobalConfig.MatchupFile.FullFilePath().LoadFile().ConvertToMatchupModels();
+
+            int currentId = 1;
+            if (matchups.Count > 0)
+            {
+                currentId = matchups.OrderByDescending(x=>x.Id).First().Id+1; 
+            }
+            matchup.Id = currentId;
             foreach (MatchupEntryModel entry in matchup.Entries)
             {
                 entry.SaveEntryToFile(matchupEntryFile);
             }
+            // save to File 
         }
         public static void SaveEntryToFile(this MatchupEntryModel entry, string matchupEntryFile)
         {
-
+            List<MatchupEntryModel> entries = GlobalConfig.MatchupEntryFile.FullFilePath().LoadFile().ConvertToMatchupEntryModels();
+            int currentId = 1;
+            if (entries.Count > 0)
+            {
+                currentId = entries.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            entry.Id = currentId;
+            entries.Add(entry);
+            List<string> lines= new List<string>();
+            foreach (MatchupEntryModel e in entries)
+            {
+                string parent = string.Empty;
+                if(e.ParentMatchup != null)
+                {
+                    parent = e.ParentMatchup.Id.ToString();
+                }
+                lines.Add($"{e.Id},{e.TeamCompeting.Id},{e.Score},{parent}");
+            }
+           File.WriteAllLines(GlobalConfig.MatchupEntryFile.FullFilePath(), lines);
         }
 
         private static string ConvertTeamListToString(List<TeamModel> teams)
@@ -242,7 +269,7 @@ namespace TrackerLibrary.DataAccess
             List<MatchupEntryModel> entries = GlobalConfig.MatchupEntryFile.FullFilePath().LoadFile().ConvertToMatchupEntryModels();
             foreach (string id in ids)
             {
-                output.Add(entries.Where(x =>x.Id == int.Parse(id)).FirstOrDefault());
+                output.Add(entries.Where(x =>x.Id == int.Parse(id)).First());
             }
             return output;
         }
@@ -257,8 +284,17 @@ namespace TrackerLibrary.DataAccess
                 matchupEntry.Id = int.Parse(cols[0]);
                 matchupEntry.TeamCompeting = LookupTeamById(int.Parse(cols[1]));
                 matchupEntry.Score = double.Parse(cols[2]);
-                matchupEntry.ParentMatchup = LookupMatchupById(int.Parse(cols[3]));
-              
+                int parentId = 0;
+                if(int.TryParse(cols[3], out parentId))
+                {
+                    matchupEntry.ParentMatchup = LookupMatchupById(int.Parse(cols[3]));
+                }
+                else
+                {
+                    matchupEntry.ParentMatchup = null; 
+                }
+
+                output.Add(matchupEntry);
             }
             return output;
         }
