@@ -108,7 +108,6 @@ namespace TrackerLibrary
                 connection.Execute("dbo.spTournamentEntries_Insert", p, commandType: CommandType.StoredProcedure);
             }
         }
-
         private void SaveTournamentRounds(IDbConnection connection, TournamentModel model)
         {
             foreach (List<MatchupModel> round in model.Rounds)
