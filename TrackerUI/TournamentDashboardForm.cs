@@ -13,20 +13,22 @@ namespace TrackerUI
 {
     public partial class TournamentDashboardForm : Form
     {
-        List<TournamentModel> tournamentmodels = GlobalConfig.Connection.GetTounamentAll();
+        List<TournamentModel> tournaments = GlobalConfig.Connection.GetTounamentAll();
         public TournamentDashboardForm()
         {
             InitializeComponent();
+            WireUpLists();
+        }
+        private void WireUpLists()
+        {
+            loadExistingTournamentDropdown.DataSource = tournaments;
+            loadExistingTournamentDropdown.DisplayMember = "TournamentName";
         }
 
-        private void headerLabel_Click(object sender, EventArgs e)
+        private void createTournamentButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void TournamentDashboardForm_Load(object sender, EventArgs e)
-        {
-
+            CreateTournamentForm frm = new CreateTournamentForm();
+            frm.Show();
         }
     }
 }

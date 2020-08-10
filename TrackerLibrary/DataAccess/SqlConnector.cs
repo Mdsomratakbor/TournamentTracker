@@ -198,12 +198,14 @@ namespace TrackerLibrary
                 {
                     try
                     {
-                        output = connection.Query<TournamentModel>("dbo.spTournament_GetAll").ToList();
+                        output = connection.Query<TournamentModel>("dbo.spTournaments_GetAll").ToList();
                         var p = new DynamicParameters();
                         foreach (TournamentModel t in output)
                         {
-                            t.Prizes = connection.Query<PrizeModel>("dbo.spPrizes_GetByTournament").ToList();
-                            t.EnteredTeams = connection.Query<TeamModel>("dbo.spTeam_GetByTournament").ToList();
+                            p = new DynamicParameters();
+                            p.Add("@TournamentId", t.Id);
+                            t.Prizes = connection.Query<PrizeModel>("dbo.spPrizes_GetByTournament", p, commandType: CommandType.StoredProcedure).ToList();
+                            t.EnteredTeams = connection.Query<TeamModel>("dbo.spTeam_GetByTournament", p, commandType: CommandType.StoredProcedure).ToList();
                             foreach (TeamModel team in t.EnteredTeams)
                             {
                                 p = new DynamicParameters();
