@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrackerLibrary;
 
 namespace TrackerUI
 {
     public partial class TournamentDashboardForm : Form
     {
+        List<TournamentModel> tournamentmodels = GlobalConfig.Connection.GetTounamentAll();
         public TournamentDashboardForm()
         {
             InitializeComponent();

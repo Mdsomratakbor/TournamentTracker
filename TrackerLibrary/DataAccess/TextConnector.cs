@@ -85,5 +85,10 @@ namespace TrackerLibrary
         {
             return TeamFile.FullFilePath().LoadFile().ConvertTeamModels(PersonFile);
         }
+
+        public List<TournamentModel> GetTounamentAll()
+        {
+            return TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamFile, PersonFile, PrizesFile);
+        }
     }
 }

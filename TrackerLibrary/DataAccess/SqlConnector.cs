@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace TrackerLibrary
 {
@@ -68,12 +69,26 @@ namespace TrackerLibrary
 
         public void CreateTournament(TournamentModel model)
         {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString(db)))
+            using (TransactionScope scope = new TransactionScope())
             {
-                SaveTournament(connection, model);
-                SaveTournamentPrizes(connection, model);
-                SaveTournamentEntries(connection, model);
-                SaveTournamentRounds(connection, model);
+                using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString(db)))
+                {
+                    try
+                    {
+                        SaveTournament(connection, model);
+                        SaveTournamentPrizes(connection, model);
+                        SaveTournamentEntries(connection, model);
+                        SaveTournamentRounds(connection, model);
+                        scope.Complete();
+                    }
+                    catch (Exception e)
+                    {
+
+                        connection.BeginTransaction().Rollback();
+                        throw e;
+                    }
+
+                }
             }
         }
 
@@ -169,6 +184,80 @@ namespace TrackerLibrary
                     var p = new DynamicParameters();
                     p.Add("@TeamId", team.Id);
                     team.TeamMembers = connection.Query<PersonModel>("dbo.spTeamMemberGetByTeam", p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            return output;
+        }
+
+        public List<TournamentModel> GetTounamentAll()
+        {
+            List<TournamentModel> output = new List<TournamentModel>();
+            using (TransactionScope scope = new TransactionScope())
+            {
+                using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString(db)))
+                {
+                    try
+                    {
+                        output = connection.Query<TournamentModel>("dbo.spTournament_GetAll").ToList();
+                        var p = new DynamicParameters();
+                        foreach (TournamentModel t in output)
+                        {
+                            t.Prizes = connection.Query<PrizeModel>("dbo.spPrizes_GetByTournament").ToList();
+                            t.EnteredTeams = connection.Query<TeamModel>("dbo.spTeam_GetByTournament").ToList();
+                            foreach (TeamModel team in t.EnteredTeams)
+                            {
+                                p = new DynamicParameters();
+                                p.Add("@TeamId", team.Id);
+                                team.TeamMembers = connection.Query<PersonModel>("dbo.spTeamMemberGetByTeam", p, commandType: CommandType.StoredProcedure).ToList();
+                            }
+                            p = new DynamicParameters();
+                            p.Add("@TournamentId", t.Id);
+                            List<MatchupModel> matchups = connection.Query<MatchupModel>("dbo.spMatchups_GetByTournament", p, commandType: CommandType.StoredProcedure).ToList();
+                            foreach (MatchupModel m in matchups)
+                            {
+                                p = new DynamicParameters();
+                                p.Add("@MatchupId", m.Id);
+                                m.Entries = connection.Query<MatchupEntryModel>("dbo.spMatchupEntries_GetByMatchup", p, commandType: CommandType.StoredProcedure).ToList();
+                                List<TeamModel> allTeams = GetTeamAll();
+                                if (m.WinnerId > 0)
+                                {
+                                    m.Winner = allTeams.Where(x => x.Id == m.WinnerId).FirstOrDefault();
+                                }
+                                foreach (var me in m.Entries)
+                                {
+                                    if (me.TeamCompetingId > 0)
+                                    {
+                                        me.TeamCompeting = allTeams.Where(x => x.Id == me.TeamCompetingId).FirstOrDefault();
+                                    }
+                                    if (me.ParentMatchupId > 0)
+                                    {
+                                        me.ParentMatchup = matchups.Where(x => x.Id == me.ParentMatchupId).FirstOrDefault();
+                                    }
+                                }
+                            }
+                            List<MatchupModel> currRow = new List<MatchupModel>();
+                            int currRound = 1;
+                            foreach (MatchupModel m in matchups)
+                            {
+                                if (m.MatchupRound > currRound)
+                                {
+                                    t.Rounds.Add(currRow);
+                                    currRow = new List<MatchupModel>();
+                                    currRound += 1;
+                                }
+                                currRow.Add(m);
+                            }
+                            t.Rounds.Add(currRow);
+                        }
+
+
+                        scope.Complete();
+                    }
+                    catch (Exception e)
+                    {
+                        connection.BeginTransaction().Rollback();
+                        throw e;
+                    }
                 }
             }
             return output;
