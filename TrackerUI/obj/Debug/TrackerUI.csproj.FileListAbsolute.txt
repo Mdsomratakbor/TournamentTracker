@@ -3,7 +3,6 @@ D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\TrackerUI.
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\TrackerUI.pdb
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.csprojAssemblyReference.cache
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.Properties.Resources.resources
-D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.versusLabel.resources
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.csproj.GenerateResource.cache
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.csproj.CoreCompileInputs.cache
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.exe
@@ -17,3 +16,4 @@ D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\Dapper.dll
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\bin\Debug\Dapper.xml
 D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.CreateTournamentForm.resources
+D:\My Project\TournamentTracker\TournamentTracker\TrackerUI\obj\Debug\TrackerUI.TournamentViewForm.resources
