@@ -1,6 +1,6 @@
 ﻿namespace TrackerUI
 {
-    partial class versusLabel
+    partial class TournamentViewForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(versusLabel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TournamentViewForm));
             this.headerLabel = new System.Windows.Forms.Label();
             this.tournamentName = new System.Windows.Forms.Label();
             this.roundLabel = new System.Windows.Forms.Label();
@@ -198,7 +198,7 @@
             this.scoreButton.Text = "Score";
             this.scoreButton.UseVisualStyleBackColor = false;
             // 
-            // versusLabel
+            // TournamentViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -222,7 +222,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Name = "versusLabel";
+            this.Name = "TournamentViewForm";
             this.Text = "<team one>";
             this.Load += new System.EventHandler(this.TournamentViewerForm_Load);
             this.ResumeLayout(false);
