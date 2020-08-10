@@ -55,7 +55,6 @@
             this.headerLabel.Size = new System.Drawing.Size(224, 50);
             this.headerLabel.TabIndex = 0;
             this.headerLabel.Text = "Tournament :";
-            this.headerLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // tournamentName
             // 
@@ -67,7 +66,6 @@
             this.tournamentName.Size = new System.Drawing.Size(150, 50);
             this.tournamentName.TabIndex = 1;
             this.tournamentName.Text = "<none>";
-            this.tournamentName.Click += new System.EventHandler(this.tournamentName_Click);
             // 
             // roundLabel
             // 
@@ -100,7 +98,6 @@
             this.unplayedOnlyCheckbox.TabIndex = 4;
             this.unplayedOnlyCheckbox.Text = "Unplayed only";
             this.unplayedOnlyCheckbox.UseVisualStyleBackColor = true;
-            this.unplayedOnlyCheckbox.CheckedChanged += new System.EventHandler(this.unplayedOnlyCheckbox_CheckedChanged);
             // 
             // matchupListBox
             // 
@@ -224,7 +221,6 @@
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "TournamentViewForm";
             this.Text = "<team one>";
-            this.Load += new System.EventHandler(this.TournamentViewerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

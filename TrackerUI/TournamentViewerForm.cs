@@ -7,34 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrackerLibrary;
 
 namespace TrackerUI
 {
     public partial class TournamentViewForm : Form
     {
-        public TournamentViewForm()
+        private TournamentModel tournament;
+        public TournamentViewForm(TournamentModel tornamentModel)
         {
             InitializeComponent();
+            tournament = tornamentModel;
+            LoadFormData();
         }
-
-        private void TournamentViewerForm_Load(object sender, EventArgs e)
+        private void LoadFormData()
         {
-
+            tournamentName.Text = tournament.TournamentName;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tournamentName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void unplayedOnlyCheckbox_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
